@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Code Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .signup-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-form">
+    <h2>Signup Form</h2>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter Username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" placeholder="Enter Email">
+    </div>
+    <div class="form-group">
+      <label for="signup-code">Signup Code</label>
+      <input type="text" id="signup-code" readonly>
+    </div>
+    <button onclick="generateCode()">Generate Signup Code</button>
+  </div>
+
+  <script>
+    function generateCode() {
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      
+      // Generate a simple signup code (You can customize this logic)
+      const signupCode = username.slice(0, 3) + email.slice(0, 3) + Math.floor(Math.random() * 10000);
+      
+      document.getElementById('signup-code').value = signupCode;
+    }
+  </script>
+</body>
+</html>
